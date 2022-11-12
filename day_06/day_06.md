@@ -78,3 +78,37 @@ Now save by `ctrl+s (save the file), ctrl+x (exit)`
     above zero.
 
 ![](4.png)
+
+## Assignment 5 : Describe the below script
+
+```sh
+#!/bin/bash
+# Print a message about disk useage.
+space_free=$( df -h | awk '{ print $5 }' | sort -n | tail -n 1 | sed 's/%//' )
+#So in the line above we store the disk usage value in space_free
+#df -h list the information about disk usage 
+#we pass the value of df -h to 'awk' so with for each line in df -h
+#it get splitted and the fifth element in value is printed and the 
+#all the values are passed to 'sort -n'.
+#With sort -n we sort the value from 0 to highest (ascendent order)
+#Now we pass the values to 'tail -n 1' and we get the last value (-
+#n 1). Now we pass the value to sed 's/%//' and remove % sign.-> 
+#89% becames 89. Now the value is stored in space_free variable.
+case $space_free in
+   [1-5]*) # we check if the value is between 10 to 50 we echo
+      echo Plenty of disk space available
+   ;;
+   [6-7]*) # we check if the value is between 60 to 70 we echo
+      echo There could be a problem in the near future
+   ;;
+   8*) # we check if the value is between 80 to 8x we echo
+   echo Maybe we should look at clearing out old files
+   ;;
+   9*) # we check if the value is between 90 to 9x we echo
+   echo We could have a serious problem on our hands soon
+   ;;
+   *)# if up conditions don't match we echo
+   echo Something is not quite right here
+   ;;
+esac
+```
