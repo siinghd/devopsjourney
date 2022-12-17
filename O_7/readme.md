@@ -19,7 +19,7 @@ So to summarize, our load balacer redirects the request to one of the our ec2 in
 [![](2.png)](2.png)
 * Now let's create a load balancer 
 [![](3.png)](3.png)
-* Now let's RDS multi AZ
+* Now let's create RDS multi AZ
 * Once we created the RDS multi AZ cluster, let's connect EC2 instance so it can connect to the RDS automatically
 [![](4.png)](4.png)
 * Select EC2 instance
